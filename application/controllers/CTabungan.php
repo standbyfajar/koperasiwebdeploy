@@ -17,9 +17,9 @@ class CTabungan extends CI_Controller
 		{
 			$no= $this->ModelData->get_ppUrutTabungan();
 			// $notransbaru= "TR".date('Y-m-d').sprintf("%03s",$no->transaksi+1);
-			$n=$no->Ppuruttabungan+1;
+			$n=$no->PpurutTabungan+1;
 			// echo $n;
-			$notransbaru="TB".date('y-m-d').substr('0000'.$n,-4,4);
+			$notransbaru="TB".date('y-m-d').substr('000000000'.$n,-4,4);
 
 			$datasesi=array('noPP'=>$notransbaru,'tanggal'=>date('y-m-d'),'nik'=>'');
 			$this->session->set_userdata($datasesi);
