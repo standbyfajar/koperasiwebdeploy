@@ -87,7 +87,7 @@
               </li>
         
           <li class="nav-item">
-            <a href="<?php echo base_url('Clogin/logout') ?>" class="nav-link">
+            <a href="<?php echo base_url('CLogin/logout') ?>" class="nav-link">
               <i class="nav-icon fas fa-th"></i>
               <p>
                 Logout
