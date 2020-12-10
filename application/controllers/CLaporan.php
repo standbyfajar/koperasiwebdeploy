@@ -10,8 +10,8 @@ class CLaporan extends CI_Controller
 		$this->load->library('session');
 		$this->load->model('ModelGue');
 		$this->load->model('ModelData');
-		$this->load->library('MyLibrary');
-		$this->load->library('fpdf');
+		$this->load->libraries('MyLibrary');
+		$this->load->libraries('fpdf');
 
 
     }
