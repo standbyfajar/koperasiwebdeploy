@@ -178,6 +178,8 @@ class CNasabah extends CI_Controller
 				// $hasil=$this->modelsaya->semuadata('barang');
 				$data= array('nomor_nasabah'=>$kod,'pesan'=>'data Id tidak boleh Sama');
 				$this->load->view('Nasabah/NewNasabah',$data);
+				echo $data;
+				return;
 			}else{
 				$data = array('nomor_nasabah' =>$kod ,
 				'nama_nasabah'=>$nama,
