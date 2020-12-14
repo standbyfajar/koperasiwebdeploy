@@ -174,7 +174,7 @@ class CNasabah extends CI_Controller
 			$x = array('nomor_nasabah' =>$kod  );
 			$cari=$this->ModelGue->GetWhere('nasabah',$x);
 
-			if(count($cari)>0){
+			if($cari) != null){
 				// $hasil=$this->modelsaya->semuadata('barang');
 				$data= array('nomor_nasabah'=>$kod,'pesan'=>'data Id tidak boleh Sama');
 				$this->load->view('Nasabah/NewNasabah',$data);
