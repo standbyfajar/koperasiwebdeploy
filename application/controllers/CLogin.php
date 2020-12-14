@@ -47,7 +47,7 @@ class CLogin extends CI_Controller
 						'email' =>$email  );
 			$cari=$this->ModelGue->GetWhere('login',$x);
 
-			if(count($cari)>0){
+			if($cari != null){
 				$data= array('username'=>$user,'pesan'=>'username tidak boleh Sama',
 							'email'=> $email,'pesan1'=>'email tidak boleh Sama');
 				$this->load->view('Login/Login',$data);
@@ -73,7 +73,7 @@ class CLogin extends CI_Controller
                     //set up email
                 $config = array(
                     'protocol' => 'smtp',
-                    'smtp_host' => 'ssl://smtp.gmail.com', //Ubah sesuai dengan host anda
+                    'smtp_host' => 'smtp.gmail.com', //Ubah sesuai dengan host anda
                     'smtp_port' => '587',
                     'smtp_user' => 'koperasisahabatmandiri@gmail.com', // Ubah sesuai dengan email yang dipakai untuk mengirim konfirmasi
                     'smtp_pass' => 'Cakung99', // ubah dengan password host anda
