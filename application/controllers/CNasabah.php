@@ -39,6 +39,8 @@ class CNasabah extends CI_Controller
 			'message'=> $this->input->post('message'),
 			'namanya'=> $hasil->nama_nasabah
 				);
+				echo $data;
+				return;
 		$body = $this->load->view('Nasabah/Verifikasi',$data,TRUE); 
 		$this->load->library('email',$config);
 
