@@ -98,7 +98,7 @@ class CPeminjaman extends CI_Controller
 			$x = array('nomor_pinjam' =>$trans  );
 			$cari=$this->ModelGue->GetWhere('peminjaman',$x);
 
-			if(count($cari)>0){
+			if($cari != null){
 				$data= array('nomor_pinjam'=>$kod,'pesan'=>'data pinjam tidak boleh Sama');
 				$this->load->view('Peminjaman/NewPeminjaman',$data);
 			}else{

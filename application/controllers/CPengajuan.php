@@ -203,7 +203,7 @@ class CPengajuan extends CI_Controller
 			$x = array('nomor_transaksi' =>$kod  );
 			$cari=$this->ModelGue->GetWhere('pengajuan',$x);
 
-			if(count($cari)>0){
+			if($cari != null){
 				// $hasil=$this->modelsaya->semuadata('barang');
 				$data= array('nomor_transaksi'=>$kod,'pesan'=>'data Id tidak boleh Sama');
 				$this->load->view('Pengajuan/NewPengajuan',$data);
