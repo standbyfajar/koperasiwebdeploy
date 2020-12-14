@@ -104,7 +104,7 @@ class CNasabah extends CI_Controller
 		$this->ModelGue->update('nasabah',$data,$where);
 		$a=base_url('CNasabah');
 		$this->send($nomor_nasabah);
-		redirect($a);
+		// redirect($a);
 		
 	}
 	function vercancel($nomor_nasabah){
