@@ -24,7 +24,7 @@ class CNasabah extends CI_Controller
 	{
 		
         $config['protocol']    = 'smtp';
-        $config['smtp_host']    = 'ssl://smtp.gmail.com';
+        $config['smtp_host']    = 'smtp.gmail.com';
     	$config['smtp_port']    = '587'; 
 
         $config['smtp_user']    = 'koperasisahabatmandiri@gmail.com';
