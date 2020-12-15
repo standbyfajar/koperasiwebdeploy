@@ -143,23 +143,23 @@ class CPengajuan extends CI_Controller
 				
 	}
 
-	function ver($nomor_transaksi){
+	function ver($nomor_nasabah){
 		
 		$data = array('status'=>'Allowed');		
 		// simpan data 
-		$where=array('nomor_transaksi'=>$nomor_transaksi);
+		$where=array('nomor_nasabah'=>$nomor_nasabah);
 		$this->ModelGue->update('pengajuan',$data,$where);
 		$a=base_url('CPengajuan');
 		$this->send($nomor_nasabah);
 		// redirect($a);
 		
 	}
-	function vercancel($nomor_transaksi){
+	function vercancel($nomor_nasabah){
 		
 		$data = array('status'=>'Not Allowed');
 		
 		// simpan data ke tabel jurusan
-		$where=array('nomor_transaksi'=>$nomor_transaksi);
+		$where=array('nomor_nasabah'=>$nomor_nasabah);
 		$this->ModelGue->update('pengajuan',$data,$where);
 		$a=base_url('CPengajuan');
 		$this->sendCancel($nomor_nasabah);

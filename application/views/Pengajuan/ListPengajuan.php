@@ -99,13 +99,13 @@
 								
 								<?php }
 								else { ?>
-									<a href="<?= base_url('Cpengajuan/ver/').$row->nomor_transaksi; ?>" class="btn btn-primary btn-xs">
+									<a href="<?= base_url('Cpengajuan/ver/').$row->nomor_nasabah; ?>" class="btn btn-primary btn-xs">
 									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-check2-all" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 									<path fill-rule="evenodd" d="M12.354 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z"/>
 									<path d="M6.25 8.043l-.896-.897a.5.5 0 1 0-.708.708l.897.896.707-.707zm1 2.414l.896.897a.5.5 0 0 0 .708 0l7-7a.5.5 0 0 0-.708-.708L8.5 10.293l-.543-.543-.707.707z"/>
 									</svg>
 									</a>	
-									<a href="<?= base_url('Cpengajuan/vercancel/').$row->nomor_transaksi; ?>" class="btn btn-danger btn-xs" title="Cancel" >
+									<a href="<?= base_url('Cpengajuan/vercancel/').$row->nomor_nasabah; ?>" class="btn btn-danger btn-xs" title="Cancel" >
 									<svg width="1em" height="1em" viewBox="0 0 16 16" class="bi bi-x" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
 									<path fill-rule="evenodd" d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
 									</svg></a>
