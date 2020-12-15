@@ -22,26 +22,25 @@ class CNasabah extends CI_Controller
 	}
 	public function send($nomor_nasabah)
 	{
-		
         $config['protocol']    = 'smtp';
-        $config['smtp_host']    = 'smtp.gmail.com';
-    	$config['smtp_port']    = '587'; 
-
+        $config['smtp_host']    = 'ssl://smtp.gmail.com';
+    	$config['smtp_port']    = '465';
         $config['smtp_user']    = 'koperasisahabatmandiri@gmail.com';
-        $config['smtp_pass']    = 'Cakung99';
+        $config['smtp_pass']    = 'Cakung11';
 		$config['charset']    = 'iso-8859-1';
-		
 		//untuk email ke penerima sesuai database
 		$hasil= $this->ModelData->datanasabah($nomor_nasabah);
-		var_dump($hasil);
-		return;
+		// echo $nomor_nasabah;
+		// var_dump($hasil);
+		// return;
+		// echo $hasil->email;
 		//untuk body email
 		$data = array(
-			'message'=> $this->input->post('message'),
 			'namanya'=> $hasil->nama_nasabah
 				);
-				// echo $data;
+				// var_dump($data);
 				// return;
+				
 		$body = $this->load->view('Nasabah/Verifikasi',$data,TRUE); 
 		$this->load->library('email',$config);
 
@@ -51,13 +50,13 @@ class CNasabah extends CI_Controller
         $this->email->to($hasil->email); 
         $this->email->subject('Email Konfirmasi Pengajuan');
         $this->email->message($body);  
-		// $this->email->send();
+		$this->email->send();
         
-		if ($this->email->send()) {
-		 			echo "send";
-				} else {
-				echo "aul";
-				}
+		// if ($this->email->send()) {
+		//  			echo "send";
+		// 		} else {
+		// 		echo "aul";
+		// 		}
 				
 	}
 
@@ -66,10 +65,10 @@ class CNasabah extends CI_Controller
 		
         $config['protocol']    = 'smtp';
         $config['smtp_host']    = 'ssl://smtp.gmail.com';
-    	$config['smtp_port']    = '587'; 
+    	$config['smtp_port']    = '465'; 
 
         $config['smtp_user']    = 'koperasisahabatmandiri@gmail.com';
-        $config['smtp_pass']    = 'Cakung99';
+        $config['smtp_pass']    = 'Cakung11';
 		$config['charset']    = 'iso-8859-1';
 		
 		//untuk email ke penerima sesuai database
@@ -107,7 +106,7 @@ class CNasabah extends CI_Controller
 		$this->ModelGue->update('nasabah',$data,$where);
 		$a=base_url('CNasabah');
 		$this->send($nomor_nasabah);
-		// redirect($a);
+		redirect($a);
 		
 	}
 	function vercancel($nomor_nasabah){

@@ -1,5 +1,7 @@
 <html>
 <head>
+<title> Koperasi Sahabat Mandiri</title>
+
 <!-- Bootstrap 3.3.7 -->
 <link rel="stylesheet" href="<?php echo base_url();?>assets/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" href="<?php echo base_url();?>assets/AdminLTE/plugins/sweetalert2/sweetalert2.min.css">

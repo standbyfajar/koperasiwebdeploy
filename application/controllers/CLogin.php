@@ -73,10 +73,10 @@ class CLogin extends CI_Controller
                     //set up email
                 $config = array(
                     'protocol' => 'smtp',
-                    'smtp_host' => 'smtp.gmail.com', //Ubah sesuai dengan host anda
-                    'smtp_port' => '587',
+                    'smtp_host' => 'ssl://smtp.gmail.com', //Ubah sesuai dengan host anda
+                    'smtp_port' => '465',
                     'smtp_user' => 'koperasisahabatmandiri@gmail.com', // Ubah sesuai dengan email yang dipakai untuk mengirim konfirmasi
-                    'smtp_pass' => 'Cakung99', // ubah dengan password host anda
+                    'smtp_pass' => 'Cakung11', // ubah dengan password host anda
                     'smtp_username' => 'ADMIN_KOPERASI', // Masukkan username SMTP anda
                     'mailtype' => 'html',
                     'charset' => 'iso-8859-1',

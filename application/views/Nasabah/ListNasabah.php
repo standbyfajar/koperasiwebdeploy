@@ -2,7 +2,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+	<title>Nasabah</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- untuk hape -->
 	<meta http-equiv="content-Language" content="en-us">
