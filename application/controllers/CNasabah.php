@@ -33,7 +33,8 @@ class CNasabah extends CI_Controller
 		
 		//untuk email ke penerima sesuai database
 		$hasil= $this->ModelData->datanasabah($nomor_nasabah);
-		
+		var_dump($hasil);
+		return;
 		//untuk body email
 		$data = array(
 			'message'=> $this->input->post('message'),
