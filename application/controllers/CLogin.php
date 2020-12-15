@@ -63,6 +63,7 @@ class CLogin extends CI_Controller
 				'namabelakang'=>$nama2,
 				'email'=>$email,
 				'password'=>md5($pass),
+				'hak_akses'=>2,
                 'code'=>$code);
 				// simpan data ke tabel 
 				$this->ModelGue->insert('login',$data);
@@ -148,9 +149,9 @@ class CLogin extends CI_Controller
 			// echo 'ga sama';
         $this->session->set_flashdata('pesan', 'Cannot activate account. Code didnt match');
         }
-        // $a=base_url('CLogin');
+        $a=base_url('CLogin');
               
-        // redirect($a);
+        redirect($a);
     }
     
     function login(){
