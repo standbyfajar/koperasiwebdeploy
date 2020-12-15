@@ -78,7 +78,8 @@ class CPengajuan extends CI_Controller
 		
 		//untuk email ke penerima sesuai database
 		$hasil= $this->ModelData->datastat($nomor_transaksi);
-		
+		var_dump($hasil);
+		return;
 		//untuk body email
 		$data = array(
 			'namadepan'=> $hasil->namadepan,
@@ -120,8 +121,8 @@ class CPengajuan extends CI_Controller
 		
 		//untuk body email
 		$data = array(
-			'message'=> $this->input->post('message'),
-			'namanya'=> $hasil->nama
+			'namadepan'=> $hasil->namadepan,
+			'namabelakang'=> $hasil->namabelakang
 				);
 		$body = $this->load->view('Pengajuan/BodyEmailNot',$data,TRUE); 
 		$this->load->library('email',$config);
@@ -150,7 +151,7 @@ class CPengajuan extends CI_Controller
 		$this->ModelGue->update('pengajuan',$data,$where);
 		$a=base_url('CPengajuan');
 		$this->send($nomor_transaksi);
-		redirect($a);
+		// redirect($a);
 		
 	}
 	function vercancel($nomor_transaksi){
