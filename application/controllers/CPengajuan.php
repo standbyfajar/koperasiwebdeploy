@@ -78,14 +78,15 @@ class CPengajuan extends CI_Controller
 		
 		//untuk email ke penerima sesuai database
 		$hasil= $this->ModelData->datastat($nomor_transaksi);
-		var_dump($hasil);
-		return;
+		// var_dump($hasil);
+		// return;
 		//untuk body email
 		$data = array(
 			'namadepan'=> $hasil->namadepan,
 			'namabelakang'=> $hasil->namabelakang
-
-				);
+			);
+			echo $data;
+			return;
 		$body = $this->load->view('Pengajuan/BodyEmail',$data,TRUE); 
 		$this->load->library('email',$config);
 
