@@ -150,7 +150,7 @@ class CPengajuan extends CI_Controller
 		$where=array('nomor_transaksi'=>$nomor_transaksi);
 		$this->ModelGue->update('pengajuan',$data,$where);
 		$a=base_url('CPengajuan');
-		$this->send($nomor_nasabah);
+		$this->send($nomor_transaksi);
 		// redirect($a);
 		
 	}
@@ -162,7 +162,7 @@ class CPengajuan extends CI_Controller
 		$where=array('nomor_transaksi'=>$nomor_transaksi);
 		$this->ModelGue->update('pengajuan',$data,$where);
 		$a=base_url('CPengajuan');
-		$this->sendCancel($nomor_nasabah);
+		$this->sendCancel($nomor_transaksi);
 		// redirect($a);
 	}
 	
