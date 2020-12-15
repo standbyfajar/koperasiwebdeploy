@@ -48,7 +48,7 @@ class CNasabah extends CI_Controller
 		$this->email->set_mailtype("html");
         $this->email->from('koperasisahabatmandiri@gmail.com', 'ADMIN_KOPERASI');
         $this->email->to($hasil->email); 
-        $this->email->subject('Email Konfirmasi Pengajuan');
+        $this->email->subject('Email Konfirmasi Data');
         $this->email->message($body);  
 		$this->email->send();
         
