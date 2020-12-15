@@ -85,7 +85,7 @@ class CPengajuan extends CI_Controller
 			'namadepan'=> $hasil->namadepan,
 			'namabelakang'=> $hasil->namabelakang
 			);
-			echo $data;
+			var_dump($data);
 			return;
 		$body = $this->load->view('Pengajuan/BodyEmail',$data,TRUE); 
 		$this->load->library('email',$config);
