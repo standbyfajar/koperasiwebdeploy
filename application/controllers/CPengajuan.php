@@ -85,8 +85,8 @@ class CPengajuan extends CI_Controller
 			'namadepan'=> $hasil->namadepan,
 			'namabelakang'=> $hasil->namabelakang
 			);
-			var_dump($data);
-			return;
+			// var_dump($data);
+			// return;
 		$body = $this->load->view('Pengajuan/BodyEmail',$data,TRUE); 
 		$this->load->library('email',$config);
 
@@ -96,13 +96,13 @@ class CPengajuan extends CI_Controller
         $this->email->to($hasil->email); 
         $this->email->subject('Email Konfirmasi Pengajuan');
         $this->email->message($body);  
-		// $this->email->send();
+		$this->email->send();
         
-		if ($this->email->send()) {
-		 			echo "send";
-				} else {
-				echo "aul";
-				}
+		// if ($this->email->send()) {
+		//  			echo "send";
+		// 		} else {
+		// 		echo "aul";
+		// 		}
 				
 	}
 
@@ -134,13 +134,13 @@ class CPengajuan extends CI_Controller
         $this->email->to($hasil->email); 
         $this->email->subject('Email Pengajuan');
         $this->email->message($body);  
-		// $this->email->send();
+		$this->email->send();
         
-		if ($this->email->send()) {
-		 			echo "send";
-				} else {
-				echo "aul";
-				}
+		// if ($this->email->send()) {
+		//  			echo "send";
+		// 		} else {
+		// 		echo "aul";
+		// 		}
 				
 	}
 
@@ -152,7 +152,7 @@ class CPengajuan extends CI_Controller
 		$this->ModelGue->update('pengajuan',$data,$where);
 		$a=base_url('CPengajuan');
 		$this->send($nomor_transaksi);
-		// redirect($a);
+		redirect($a);
 		
 	}
 	function vercancel($nomor_transaksi){
@@ -164,7 +164,7 @@ class CPengajuan extends CI_Controller
 		$this->ModelGue->update('pengajuan',$data,$where);
 		$a=base_url('CPengajuan');
 		$this->sendCancel($nomor_transaksi);
-		// redirect($a);
+		redirect($a);
 	}
 	
 	function get_P($id){
