@@ -1,5 +1,7 @@
 <html>
 <head>
+<!-- icon title -->
+<link rel="icon" href="<?php echo base_url('koperasi.jpg') ?>" type="image/ico" />
 <title> Koperasi Sahabat Mandiri</title>
 
 <!-- Bootstrap 3.3.7 -->
