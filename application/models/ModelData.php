@@ -94,7 +94,7 @@ class ModelData extends CI_Model
 	}
 
 	function datastat($nomor_transaksi){
-		$query="select a.*,b.nama_nasabah,b.total_tabungan from pengajuan a INNER JOIN nasabah b ON a.nomor_nasabah=b.nomor_nasabah where nomor_transaksi=".$nomor_transaksi;
+		$query="select a.*,b.namadepan,b.namabelakang,b.email from pengajuan a INNER JOIN login b ON a.nomor_nasabah=b.nomor_nasabah where nomor_transaksi='".$nomor_transaksi."'";
 		$hsl=$this->db->query($query);
 		return $hsl->row();
 	}

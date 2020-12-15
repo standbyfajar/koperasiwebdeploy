@@ -73,7 +73,7 @@ class CPengajuan extends CI_Controller
     	$config['smtp_port']    = '465'; 
 
         $config['smtp_user']    = 'koperasisahabatmandiri@gmail.com';
-        $config['smtp_pass']    = 'Cakung99';
+        $config['smtp_pass']    = 'Cakung11';
 		$config['charset']    = 'iso-8859-1';
 		
 		//untuk email ke penerima sesuai database
@@ -81,8 +81,9 @@ class CPengajuan extends CI_Controller
 		
 		//untuk body email
 		$data = array(
-			'message'=> $this->input->post('message'),
-			'namanya'=> $hasil->nama
+			'namadepan'=> $hasil->namadepan,
+			'namabelakang'=> $hasil->namabelakang
+
 				);
 		$body = $this->load->view('Pengajuan/BodyEmail',$data,TRUE); 
 		$this->load->library('email',$config);
@@ -111,7 +112,7 @@ class CPengajuan extends CI_Controller
     	$config['smtp_port']    = '465'; 
 
         $config['smtp_user']    = 'koperasisahabatmandiri@gmail.com';
-        $config['smtp_pass']    = 'Cakung99';
+        $config['smtp_pass']    = 'Cakung11';
 		$config['charset']    = 'iso-8859-1';
 		
 		//untuk email ke penerima sesuai database
