@@ -65,7 +65,7 @@ class CPengajuan extends CI_Controller
 		redirect(base_url().'CPengajuan');
 	}
 
-	public function send($nomor_nasabah)
+	public function send($nomor_transaksi)
 	{
 		
         $config['protocol']    = 'smtp';
@@ -105,7 +105,7 @@ class CPengajuan extends CI_Controller
 				
 	}
 
-	public function sendCancel($nomor_nasabah)
+	public function sendCancel($nomor_transaksi)
 	{
 		
         $config['protocol']    = 'smtp';
