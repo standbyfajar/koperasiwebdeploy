@@ -2,7 +2,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title></title>
+<!-- icon title -->
+	<link rel="icon" href="<?php echo base_url('koperasi.jpg') ?>" type="image/ico" />
+	<title>Pengajuan Transaksi</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- untuk hape -->
 	<meta http-equiv="content-Language" content="en-us">

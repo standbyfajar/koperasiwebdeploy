@@ -2,6 +2,8 @@
 <!DOCTYPE html>
 <html>
 <head>
+	<!-- icon title -->
+	<link rel="icon" href="<?php echo base_url('koperasi.jpg') ?>" type="image/ico" />
 	<title>Nasabah</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- untuk hape -->
