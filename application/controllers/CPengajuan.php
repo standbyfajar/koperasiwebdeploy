@@ -122,6 +122,10 @@ class CPengajuan extends CI_Controller
 		
 		//untuk body email
 		$data = array(
+			'notrans'=> $hasil->nomor_transaksi,
+			'tgltrans'=>$hasil->tanggal_transaksi,
+			'tglpinjam'=>$hasil->tanggal_peminjaman,
+			'ket'=>$hasil->keterangan,
 			'namadepan'=> $hasil->namadepan,
 			'namabelakang'=> $hasil->namabelakang
 				);
