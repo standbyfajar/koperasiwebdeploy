@@ -85,7 +85,7 @@ class CPengajuan extends CI_Controller
 			'namadepan'=> $hasil->namadepan,
 			'namabelakang'=> $hasil->namabelakang
 			);
-			var_dump($data);
+			// var_dump($data);
 			// return;
 		$body = $this->load->view('Pengajuan/BodyEmail',$data,TRUE); 
 		$this->load->library('email',$config);
@@ -152,7 +152,7 @@ class CPengajuan extends CI_Controller
 		$this->ModelGue->update('pengajuan',$data,$where);
 		$a=base_url('CPengajuan');
 		$this->send($nomor_transaksi);
-		// redirect($a);
+		redirect($a);
 		
 	}
 	function vercancel($nomor_transaksi){
@@ -164,7 +164,7 @@ class CPengajuan extends CI_Controller
 		$this->ModelGue->update('pengajuan',$data,$where);
 		$a=base_url('CPengajuan');
 		$this->sendCancel($nomor_transaksi);
-		// redirect($a);
+		redirect($a);
 	}
 	
 	function get_P($id){
