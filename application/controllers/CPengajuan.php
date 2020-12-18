@@ -375,7 +375,7 @@ class CPengajuan extends CI_Controller
 			$pdf->Cell(300,5,'Prepared By,',0,1,'C');
 			$pdf->Line(85, 135, 45, 135); 
 			$pdf->Cell(60,70,$datadetil->nama_nasabah,0,0,'R');  //nama 
-			// $pdf->Line(135, 135, 175, 135); 
+			$pdf->Line(135, 135, 175, 135); 
 			// $pdf->Cell(100,70,$datadetil->admin,0,1,'R');  //nama 
 
 

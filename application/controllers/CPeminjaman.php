@@ -173,11 +173,11 @@ class CPeminjaman extends CI_Controller
 
 				$pdf->Cell(95,8,'Tanggal ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
-				$pdf->Cell(45,8,$datadetil->tanggal,0,1,'C');
+				$pdf->Cell(45,8,$datadetil->tanggal_transaksi,0,1,'C');
 
-				$pdf->Cell(95,8,'NIK ',0,0,'C');
+				$pdf->Cell(95,8,'Nasabah ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
-				$pdf->Cell(45,8,$datadetil->nik,0,1,'C');
+				$pdf->Cell(45,8,$datadetil->nomor_nasabah,0,1,'C');
 
 				$pdf->Cell(95,8,'admin ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
