@@ -11,6 +11,7 @@ class CPeminjaman extends CI_Controller
 		$this->load->model('ModelGue');
 		$this->load->model('ModelData');
 		$this->load->library('Mylibrary');
+		$this->load->library('Fpdf');
 
 	}
 
@@ -142,23 +143,17 @@ class CPeminjaman extends CI_Controller
 			$this->session->set_userdata('muncul',true);
 	
 			$where=array('nomor_pengajuan'=>$noPP);
-			$datadetil=$this->ModelData->cetak_formPP($noPP);	
-
-			// if (count($datadetil)==0) {
-			// 	$this->session->set_userdata('pesan','Belum ada data');
-			// 	redirect(base_url().'Cpermintaan');
-			// 	exit;
-			// }
+			$datadetil=$this->ModelData->cetak_peminjaman($noPP);	
 			$this->load->library('fpdf');
 			$pdf= new FPDF('P','mm','A4');
 			$pdf->AddPage();
 			// judul baris 1
 			$pdf->SetFont('Arial','B',14);
-			$title="Form Pengajuan Peminjaman";
+			$title="Form Peminjaman";
 			$pdf->SetTitle($title);
 			$pdf->SetAuthor('Fajar karunia');
 			// cell(width,height,text,border,endline, align)
-				$pdf->Cell(200,4,'Form Permintaan Peminjaman  ',0,1,'C');
+				$pdf->Cell(200,4,'Form Transaksi Peminjaman  ',0,1,'C');
 				$pdf->Cell(205,4,' Koperasi Sahabat Mandiri ',0,1,'C');
 				$pdf->Cell(205,4,'Jln Pintu Air Utara ',0,1,'C');
 
@@ -168,7 +163,7 @@ class CPeminjaman extends CI_Controller
 			// $pdf->Cell(8,8,'',1,0,'C');
 				$pdf->Cell(95,8,'No Pengajuan ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
-				$pdf->Cell(45,8,$datadetil->nomor_pengajuan,0,1,'C');
+				$pdf->Cell(45,8,$datadetil->nomor_pinjam,0,1,'C');
 
 
 				$pdf->Cell(95,8,'Tanggal ',0,0,'C');
@@ -177,15 +172,27 @@ class CPeminjaman extends CI_Controller
 
 				$pdf->Cell(95,8,'Nasabah ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
-				$pdf->Cell(45,8,$datadetil->nomor_nasabah,0,1,'C');
+				$pdf->Cell(45,8,$datadetil->nama_nasabah,0,1,'C');
 
-				$pdf->Cell(95,8,'admin ',0,0,'C');
+				$pdf->Cell(95,8,'nominal ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
-				$pdf->Cell(45,8,$datadetil->admin,0,1,'C');
+				$pdf->Cell(45,8,$datadetil->nominal,0,1,'C');
 
-				$pdf->Cell(95,8,'Deskripsi ',0,0,'C');
+				$pdf->Cell(95,8,'Cicilan ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
-				$pdf->Cell(45,8,$datadetil->deskripsi,0,1,'C');
+				$pdf->Cell(45,8,$datadetil->cicilan,0,1,'C');
+
+				$pdf->Cell(95,8,'bunga ',0,0,'C');
+				$pdf->Cell(5,8,':',0,0,'C');
+				$pdf->Cell(45,8,$datadetil->bunga,0,1,'C');
+
+				$pdf->Cell(95,8,'jasa tiap bulan ',0,0,'C');
+				$pdf->Cell(5,8,':',0,0,'C');
+				$pdf->Cell(45,8,$datadetil->kredit_bulan,0,1,'C');
+
+				$pdf->Cell(95,8,'Keterangan ',0,0,'C');
+				$pdf->Cell(5,8,':',0,0,'C');
+				$pdf->Cell(45,8,$datadetil->keterangan,0,1,'C');
 
 			$pdf->Ln();
 				$pdf->SetLineWidth(0.5);
@@ -199,9 +206,9 @@ class CPeminjaman extends CI_Controller
 				$pdf->Ln();
 				$pdf->Cell(300,5,'Prepared By,',0,1,'C');
 				$pdf->Line(85, 135, 45, 135); 
-				$pdf->Cell(60,70,$datadetil->nama_karyawan,0,0,'R');  //nama 
+				$pdf->Cell(60,70,$datadetil->nama_nasabah,0,0,'R');  //nama 
 				$pdf->Line(135, 135, 175, 135); 
-				$pdf->Cell(100,70,$datadetil->admin,0,1,'R');  //nama 
+				$pdf->Cell(100,70,'(Ketua)',0,1,'R');  //nama 
 
 				// $pdf->Line(85, 125, 125, 125); 
 

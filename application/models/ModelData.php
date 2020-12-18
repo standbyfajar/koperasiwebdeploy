@@ -181,6 +181,13 @@ class ModelData extends CI_Model
 		$hsl=$this->db->query($qr);
 		return $hsl->row();
 	}
+	function cetak_peminjaman($nota){
+		$qr="SELECT a.nomor_pengajuan,a.tanggal_transaksi,a.nomor_pinjam,a.nomor_nasabah,b.nama_nasabah,b.nama_nasabah,
+		a.nominal,a.cicilan,a.bunga,a.kredit_bulan,a.keterangan
+		FROM peminjaman a INNER JOIN nasabah b ON a.nomor_nasabah=b.nomor_nasabah WHERE a.nomor_pinjam='$nota'";
+		$hsl=$this->db->query($qr);
+		return $hsl->row();
+	}
 	function laporan_bln($tglawal,$tglakhir){
 		$query="SELECT a.nomor_pinjam,a.tanggal_transaksi,a.nomor_nasabah,b.nama_nasabah,a.nominal,a.keterangan from peminjaman a inner join nasabah b ON a.nomor_nasabah=b.nomor_nasabah where (tanggal_transaksi>='$tglawal' and tanggal_transaksi<='$tglakhir')";
 			$kasus=$this->db->query($query)->result();
