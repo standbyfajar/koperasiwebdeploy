@@ -350,7 +350,7 @@ class CPengajuan extends CI_Controller
 
 			$pdf->Cell(95,8,'No Nasabah ',0,0,'C');
 			$pdf->Cell(5,8,':',0,0,'C');
-			$pdf->Cell(45,8,$datadetil->nomor_nasabh,0,1,'C');
+			$pdf->Cell(45,8,$datadetil->nomor_nasabah,0,1,'C');
 
 			$pdf->Cell(95,8,'Tanggal Peminjaman ',0,0,'C');
 			$pdf->Cell(5,8,':',0,0,'C');
