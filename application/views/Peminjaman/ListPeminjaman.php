@@ -98,7 +98,7 @@
 								onclick="return Confirm()">
 								<i class="icon-trash"></i>hapus data</a>
 								
-								<a style="width: 110px;" href="<?php echo base_url('CPeminjaman/Cetak_form/').$row->nomor_pengajuan ?>" target="_blank"  class="btn btn-success btn-xs" >
+								<a style="width: 110px;" href="<?php echo base_url('CPeminjaman/Cetak_form/').$row->nomor_pinjam ?>" target="_blank"  class="btn btn-success btn-xs" >
 								<i class="icon-print"></i> Cetak</a>
 								</td></div>
 							</tr><?php

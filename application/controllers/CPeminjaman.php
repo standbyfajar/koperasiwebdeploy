@@ -165,7 +165,6 @@ class CPeminjaman extends CI_Controller
 				$pdf->Cell(5,8,':',0,0,'C');
 				$pdf->Cell(45,8,$datadetil->nomor_pinjam,0,1,'C');
 
-
 				$pdf->Cell(95,8,'Tanggal ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
 				$pdf->Cell(45,8,$datadetil->tanggal_transaksi,0,1,'C');
