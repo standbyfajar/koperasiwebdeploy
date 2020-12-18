@@ -10,6 +10,8 @@ class CPengajuan extends CI_Controller
 		$this->load->library('session');
 		$this->load->model('ModelGue');
 		$this->load->model('ModelData');
+		$this->load->library('Mylibrary');
+		$this->load->library('Fpdf');
 	}
 
 	function index(){
