@@ -139,11 +139,11 @@ class CPeminjaman extends CI_Controller
 			redirect(base_url().'CPeminjaman');
 		}
 
-	public function Cetak_form($noPP){
+	public function Cetak_form($nota){
 			$this->session->set_userdata('muncul',true);
 	
-			$where=array('nomor_pengajuan'=>$noPP);
-			$datadetil=$this->ModelData->cetak_peminjaman($noPP);	
+			$where=array('nomor_pinjam'=>$nota);
+			$datadetil=$this->ModelData->cetak_peminjaman($nota);	
 			$this->load->library('fpdf');
 			$pdf= new FPDF('P','mm','A4');
 			$pdf->AddPage();
@@ -161,7 +161,7 @@ class CPeminjaman extends CI_Controller
 			$pdf->SetFont('Arial','',11);
 			// cell(width,height,text,border,endline, align)
 			// $pdf->Cell(8,8,'',1,0,'C');
-				$pdf->Cell(95,8,'No Pengajuan ',0,0,'C');
+				$pdf->Cell(95,8,'No Transaksi ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
 				$pdf->Cell(45,8,$datadetil->nomor_pinjam,0,1,'C');
 
