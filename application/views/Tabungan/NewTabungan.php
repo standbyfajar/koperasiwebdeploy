@@ -74,7 +74,7 @@
                                             <div class="form-group">
                                                 <label class="col-sm-5 control-label">Tanggal Transaksi</label>
                                                 <div class="col-sm-2">
-                                                <input type="date" name="tgl" >
+                                                <input type="date" name="tgl" id="tgl" >
                                                 </div>
                                             </div>
                                             
@@ -192,6 +192,13 @@
     
 </html>
 <script type="text/javascript">
+            $('#tgl').on('change', function() {
+                tgl=$('#tgl').val();
+                var bln = new Date(tgl).getMonth();
+
+                $('#bln').val(bln);
+            });
+
         $( "#nomor" ).autocomplete({
                 source: function( request, response ) {
                 // Fetch data

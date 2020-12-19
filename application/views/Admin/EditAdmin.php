@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html>
-<head>  
-    <!-- icon title -->
-	<link rel="icon" href="<?php echo base_url('koperasi.jpg') ?>" type="image/ico" />
-	<title>Input Nasabah</title>
+<head>
+<!-- icon title -->
+    <link rel="icon" href="<?php echo base_url('koperasi.jpg') ?>" type="image/ico" />
+	<title>Input Admin</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<!-- untuk hape -->
 	<meta http-equiv="content-Language" content="en-us">
@@ -33,7 +33,8 @@
   <link rel="stylesheet" href="<?php echo base_url('assets/AdminLTE/plugins/summernote/summernote-bs4.css');?>">
   <!-- Google Font: Source Sans Pro -->
   <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
-
+  <!-- AutoComplete  -->
+  <link rel="stylesheet" href="<?php echo base_url('assets/jquery/jquery-ui.css');?>">
 </head>
 <!-- Menu atas  -->
 <?php $this->load->view('Navbar'); ?>
@@ -49,7 +50,7 @@
                         <div class="col-sm-12">
                             <!-- untuk isi -->
                             <div class="panel panel-info">
-                                <div class="panel-heading">Formulir Input Nasabah Baru</div><br>
+                                <div class="panel-heading">Formulir Input Admin</div><br>
                                     <div class="panel-body">
                                                     <?php if (isset($pesan)) {?>
                                                         <div class="alert alert-danger" role="alert">
@@ -60,132 +61,89 @@
                                                         <?php 
                                                                             } ?>
                                             <!-- awal pembuatan form -->
-                                    <form class="form-horizontal" action="<?php echo base_url('CNasabah/savenasabah') ?>" method="POST" name="formbook" enctype="multipart/form-data">
+                                    <form class="form-horizontal" action="<?php echo base_url('CAdmin/updateT') ?>" method="POST" name="formbook" enctype="multipart/form-data">
                                       <div class="row">
                                           <div class="col-sm">
+                                            
                                             <div class="form-group">
-                                                <label class="col-sm-3 control-label">No Nasabah</label>
+                                                <label class="col-sm-5 control-label">Username</label>
                                                 <div class="col-sm-2">
-                                                <input type="text" name="id" placeholder="isi Id nasabah...!">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">Nama nasabah</label>
-                                                <div class="col-sm-2">
-                                                <input type="text" name="nama" placeholder="isi nama nasabah...">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">Tempat lahir</label>
-                                                <div class="col-sm-2">
-                                                <input type="text" name="tmptlhr" onkeypress ="">
-                                                </div>
-                                            </div>
-
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">Tanggal lahir</label>
-                                                <div class="col-sm-2">
-                                                <input type="date" name="tgllahir" onkeypress ="" id="tgllahir">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">Usia</label>
-                                                <div class="col-sm-2">
-                                                <input type="text" name="usia" ReadOnly  id="usia">
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">Jenis Kelamin</label>
-                                                <div class="col-sm-5">
-                                                <input type="radio" name="jk" value="Laki-Laki">Laki-Laki <br>
-                                                <input type="radio" name="jk" value="Perempuan">Perempuan
-
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-4 control-label">Type Identitas</label>
-                                                <div class="col-sm-4">
-                                                <select  class="form-control " id="type" name="type">
-                                                    <option value="">Pilih</option> 
-                                                    <option value="KTP">KTP</option>
-                                                    <option value="SIM">SIM</option>
-                                                    </select>
-                                                </div>
-                                            </div>
-                                            <div class="form-group">
-                                                <label class="col-sm-3 control-label">No Identitas</label>
-                                                <div class="col-sm-2">
-                                                <input type="text" name="noidentitas" onkeypress ="">
+                                                <input type="hidden" name="loginid" id="loginid" value="<?php echo $data->login_id; ?>" readonly >
+                                                <input type="text" name="username" id="username" value="<?php echo $data->username; ?>" readonly disabled>
                                                 </div>
                                             </div>
                                             
+                                            <div class="form-group">
+                                                <label class="col-sm-4 control-label">No Nasabah</label>
+                                                <div class="col-sm-2">
+                                                <input type="text" name="nasabah" id="nasabah" value="<?php echo $data->nomor_nasabah; ?>" >
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                    <label class="col-sm-3 control-label">Email</label>
+                                                    <div class="col-sm-2">
+                                                    <input name="email" id="email" value="<?php echo $data->email; ?>">
+                                                    </div>
+                                                </div>
+                                         
                                             
                                             </div>
                                 
                                         <div class="col-sm">
+                                             
                                                 <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Alamat</label>
+                                                    <label class="col-sm-5 control-label">Nama Depan</label>
                                                     <div class="col-sm-2">
-                                                        <textarea name="alm" placeholder="isi alamat" ></textarea>
-                                                    <!-- <input type="textarea" name="alm" placeholder="isi alamat..."> -->
+                                                    <input type="text" name="depan" id="depan" value="<?php echo $data->namadepan; ?>">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Nama Bank</label>
+                                                    <label class="col-sm-5 control-label">Nama Belakang</label>
                                                     <div class="col-sm-2">
-                                                    <input type="text" name="bank" onkeypress ="">
+                                                    <input type="text" name="belakang" id="belakang" value="<?php echo $data->namabelakang; ?>">
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-3 control-label">No Rek</label>
+                                                    <label class="col-sm-3 control-label">Password</label>
                                                     <div class="col-sm-2">
-                                                    <input type="text" name="rek" onkeypress ="">
+                                                    <!-- <input type="text" name="ket" onkeypress =""> -->
+                                                    <input name="Pass" id="Pass" value="<?php echo $data->PASSWORD; ?>">
                                                     </div>
                                                 </div>
-                                            
+                                                <div class="form-group">
+                                                    <label class="col-sm-4 control-label">Hak Akses</label>
+                                                    <div class="col-sm-8">
+                                                    <input type="text" name="hak" id="hak" value="<?php echo $data->hak_akses; ?>" readonly disabled>
+                                                    <select  class="form-control " id="akses" name="akses">
+                                                    <option value="">Pilih Hak Akses</option> 
+                                                    <option value="1">1</option>
+                                                    <option value="2">2</option>
+                                                    <option value="3">3</option>
+                                                    </select>
 
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Telepon</label>
-                                                    <div class="col-sm-2">
-                                                    <input type="text" name="tlp" onkeypress="return hanyaAngka(event)">
                                                     </div>
                                                 </div>
 
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Gaji</label>
-                                                    <div class="col-sm-2">
-                                                    <input type="text" name="gaji" onkeypress="return hanyaAngka(event)">
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-2 control-label">Foto</label>
-                                                    <div class="col-sm-2">
-                                                    <input type="File" name="ft" accept=".jpg,.png,.jpeg" onchange="bacaGambar(this)">
-                                                    <img id="preview" src="" alt="" width="80px"/>
-                                                    </div>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Foto KTP</label>
-                                                    <div class="col-sm-2">
-                                                    <input type="File" name="ft2" accept=".jpg,.png,.jpeg" onchange="ReviewPic(this)" >
-                                                    <img id="preview1" src="" alt="" width="80px"/>
-                                                    </div>
-                                                </div>
                                                 <div class="form-group">
                                                         <label class="col-sm-2 control-label"></label>
                                                         <div class="col-sm-6">
                                                         <button type="submit" class="btn btn-primary" name="proses" value="proses"><span class="glyphicon glyphicon-save"></span>Simpan</button>
+                                                        <!-- <a href="<?//php echo base_url('CAdmin'); ?>">
+                                                        <button type="cancel" class="btn btn-danger" name="cancel" value="cancel"><span class="glyphicon glyphicon-back"></span>Cancel</button>
+                                                        </a> -->
                                                         </div>
-                                                </div>
+                                                </div>  
+                                                                              
+                                              
                                                 
                                         </div>
+                                   
                                           
                               
                                   <!-- Tutup Form -->
                                         </div>           
                                       </form>                                      
-                                        
-                                                
+          
                                       </div>
                                   </div>
                               </div>
@@ -242,12 +200,47 @@
     
 </html>
 <script type="text/javascript">
-            $('#tgllahir').on('change', function() {
-                var dob = new Date(this.value);
-                var today = new Date();
-                var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
-                $('#usia').val(age);
+            $('#tgl').on('change', function() {
+                tgl=$('#tgl').val();
+                var bln = new Date(tgl).getMonth();
+
+                $('#bln').val(bln);
             });
+
+        $( "#nomor" ).autocomplete({
+                source: function( request, response ) {
+                // Fetch data
+                $.ajax({
+                    url: "<?=base_url()?>CTabungan/autocomp",
+                    type: 'post',
+                    dataType: "json",
+                    data: {
+                    term: request.term
+                    },
+                    success: function( data ) {
+                        // console.log(data);
+                        response( data );
+                    }
+                });
+                },
+                select: function (event, ui) {
+                // Set selection
+                //   $('#no_pengajuan').val(ui.item.label); // display the selected text
+                $('#nomor').val(ui.item.value); // save selected id to input
+                $.ajax({
+                    url: "<?php echo base_url(''); ?>" + 'CTabungan/get_nasabah/' + ui.item.value,
+                    type: "post",
+                    dataType: "json",
+                    success:function(data){
+                        console.log(data);
+                        $("#nomor").val(data.nomor_nasabah);
+                        $("#nomorL").text(data.nama_nasabah);
+                    }
+                })
+                return false;
+
+                }
+            }); 
                     function bacaGambar(input) {
                     if (input.files && input.files[0]) {
                         var reader = new FileReader();
@@ -272,23 +265,7 @@
                         reader.readAsDataURL(input.files[0]);
                     }
                     }
-                      
-		function hanyaAngka(evt) {
-				// alert('a');
-				  var charCode = (evt.which) ? evt.which : event.keyCode;
-				   if (charCode > 31 && (charCode < 48 || charCode > 57))
-		 
-				    return false;
-				  return true;
-				}
-				function hanyaChar(evt){
-				// alert('a');
 
-					 var charCode = (evt.which) ? evt.which : event.keyCode;
-			         if ((charCode < 65) || (charCode == 32))
-			            return false;        
-			         return true;
-				}
 
 </script>
 

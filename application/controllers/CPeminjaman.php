@@ -16,24 +16,9 @@ class CPeminjaman extends CI_Controller
 	}
 
 	function index(){
-		if (!isset($this->session->hd)) 
-		{
-			$no= $this->ModelData->get_notrans();
-			// $notransbaru= "TR".date('Y-m-d').sprintf("%03s",$no->transaksi+1);
-			$n=$no->nota+1;
-			// echo $n;
-			$transnew="PM".date('y-m-d').substr('0000'.$n,-4,4);
-
-			$dtsession=array('noPM'=>$transnew,'tanggal'=>date('y-m-d'),'nik'=>'');
-			$this->session->set_userdata($dtsession);
-
-			$this->session->set_userdata('hd',0);
-
-		}
-		$nota=$this->session->noPP;
-		$PP=$this->ModelData->data_PP();
+		
 		$hasil=$this->ModelGue->semuadata('peminjaman');
-		$data=array('datakar'=>$hasil,'datapp'=>$PP);
+		$data=array('datakar'=>$hasil);
 		$this->load->view('Peminjaman/ListPeminjaman',$data);
 	}
 	function autocomp(){
@@ -54,18 +39,35 @@ class CPeminjaman extends CI_Controller
 		echo json_encode($hasil);
 	}
 	function tambahP(){
-		$idp=$this->session->noPP;
+		if (!isset($this->session->hd)) 
+		{
+			$no= $this->ModelData->get_notrans();
+			// $notransbaru= "TR".date('Y-m-d').sprintf("%03s",$no->transaksi+1);
+			$n=$no->nota+1;
+			// echo $n;
+			$transnew="TR".date('y-m-d').substr('0000'.$n,-4,4);
+
+			$dtsession=array('noPM'=>$transnew,'tanggal'=>date('y-m-d'),'nik'=>'');
+			$this->session->set_userdata($dtsession);
+
+			$this->session->set_userdata('hd',0);
+
+		}
+		// $idp=$this->session->noPP;
 		$ses=array('hd'=>0,
 					'noPM'=>'',
 					'tanggal'=>'',
 					'nik'=>'');
 		$this->session->unset_userdata($ses);
-		$this->ModelData->updatenota($idp);
+		$nota=$this->session->noPP;
+		$PP=$this->ModelData->data_PP();
+		$this->ModelData->updatenota($nota);
 		$this->session->unset_userdata('hd',0);
 
 		$hasil=$this->ModelGue->semuadata('peminjaman');
-		// $data= array('datakar'=>$hasil);
-		$this->load->view('Peminjaman/NewPeminjaman');
+		$data=array('datakar'=>$hasil,'datapp'=>$PP);
+
+		$this->load->view('Peminjaman/NewPeminjaman',$data);
 	}
 
 	function saveP(){
@@ -153,12 +155,14 @@ class CPeminjaman extends CI_Controller
 			$pdf->SetTitle($title);
 			$pdf->SetAuthor('Fajar karunia');
 			// cell(width,height,text,border,endline, align)
+				// $this->base_url('koperasi.jpg', 1, 0.7, 3.8); // logo
+				$pdf->Image('koperasi.jpg',5,5,-500);
 				$pdf->Cell(200,4,'Form Transaksi Peminjaman  ',0,1,'C');
-				$pdf->Cell(205,4,' Koperasi Sahabat Mandiri ',0,1,'C');
-				$pdf->Cell(205,4,'Jln Pintu Air Utara ',0,1,'C');
+				$pdf->Cell(200,10,' Koperasi Sahabat Mandiri ',0,1,'C');
+				// $pdf->Cell(205,4,'Jln Pintu Air Utara ',0,1,'C');
 
-			$pdf->Ln();
-			$pdf->SetFont('Arial','',11);
+			$pdf->Ln();	
+			$pdf->SetFont('Arial','',11);	
 			// cell(width,height,text,border,endline, align)
 			// $pdf->Cell(8,8,'',1,0,'C');
 				$pdf->Cell(95,8,'No Transaksi ',0,0,'C');
@@ -183,7 +187,9 @@ class CPeminjaman extends CI_Controller
 
 				$pdf->Cell(95,8,'bunga ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
-				$pdf->Cell(45,8,$datadetil->bunga,0,1,'C');
+				$pdf->Cell(45,8,$datadetil->bunga,0,0,'C');
+				$pdf->Cell(-28,8,"%",0,1,'C');
+				
 
 				$pdf->Cell(95,8,'jasa tiap bulan ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
@@ -204,10 +210,12 @@ class CPeminjaman extends CI_Controller
 				//menentukan titik awal dan titik akhir garis yang akan di buat (x1,y1,x2,y2)
 				$pdf->Ln();
 				$pdf->Cell(300,5,'Prepared By,',0,1,'C');
-				$pdf->Line(85, 135, 45, 135); 
-				$pdf->Cell(60,70,$datadetil->nama_nasabah,0,0,'R');  //nama 
-				$pdf->Line(135, 135, 175, 135); 
-				$pdf->Cell(100,70,'(Ketua)',0,1,'R');  //nama 
+				$pdf->Line(85, 145, 35, 145); 
+				// $pdf->Cell(300,70,'',1,0,'R');
+				// $pdf->Cell(60,70,$datadetil->nama_nasabah,0,0,'R');  //nama
+				$pdf->Cell(60,70,'( Nasabah )',0,0,'R');  //nama 
+				$pdf->Line(135, 145, 175, 145); 
+				$pdf->Cell(95,70,'( Ketua )',0,1,'R');  //nama 
 
 				// $pdf->Line(85, 125, 125, 125); 
 

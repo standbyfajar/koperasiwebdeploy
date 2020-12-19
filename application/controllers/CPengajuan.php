@@ -333,9 +333,9 @@ class CPengajuan extends CI_Controller
 		$pdf->SetTitle($title);
 		$pdf->SetAuthor('Fajar karunia');
 		// cell(width,height,text,border,endline, align)
+			$pdf->Image('koperasi.jpg',5,5,-500);
 			$pdf->Cell(200,4,'Form Pengajuan Peminjaman  ',0,1,'C');
-			$pdf->Cell(205,4,'Di Koperasi Sahabat Mandiri ',0,1,'C');
-			$pdf->Cell(205,4,'Jln Komarudin ',0,1,'C');
+			$pdf->Cell(205,10,'Di Koperasi Sahabat Mandiri ',0,1,'C');
 
 		$pdf->Ln();
 		$pdf->SetFont('Arial','',11);

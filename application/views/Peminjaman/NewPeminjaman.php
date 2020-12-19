@@ -67,8 +67,9 @@
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">No Pengajuan</label>
                                                 <div class="col-sm-8">
-                                                <input type="text" name="no_pengajuan" id="no_pengajuan">
-                                                <button id="btnPop" type="button" class="btn btn-info btn-xs btn_PP"><i class="fa fa-search-plus" aria-hidden="true"></i></button>
+                                                <input type="text" name="no_pengajuan" id="no_pengajuan" readonly>
+                                                <button id="btnPop" type="button" class="btn btn-info btn-xs btn_PP">
+                                                <i class="fa fa-search-plus" aria-hidden="true"></i></button>
 
                                                 </div>
                                             </div>
@@ -88,14 +89,18 @@
                                                 <div class="form-group">
                                                     <label class="col-sm-3 control-label">No Nasabah</label>
                                                     <div class="col-sm-2">
-                                                    <input type="text" name="nasa" id="nasa" readonly/>                                                    
+                                                    <input type="text" name="nasa" id="nasa" readonly/>
                                                     </div>
+                                                    <Label class="col-sm-5 control-label" id="nama" name="nama"></Label>                                                    
+
                                                 </div>
                                                 <div class="form-group">
                                                     <label class="col-sm-4 control-label">Total Tabungan</label>
-                                                    <div class="col-sm-2">
-                                                    <input type="text" name="tot_tabungan" id="tot_tabungan" readonly/>                                                    
+                                                    <div class="col-sm-5">
+                                                    <Label  id="tot_tabungan" name="tot_tabungan"></Label>                                                    
+                                                    <input type="hidden" name="tot_tabungan" id="tot_tabungan" readonly/>                                                    
                                                     </div>
+                                                    
                                                 </div>
                                             <div class="form-group">
                                                         <label class="col-sm-2 control-label"></label>
@@ -139,19 +144,11 @@
                                                     <textarea name="ket" id="" cols="30" rows="2"></textarea>
                                                     </div>
                                                 </div>
-                                            
-
-                                              
-                                                
-                                        </div>
-                                   
-                                          
-                              
-                                  <!-- Tutup Form -->
-                                        </div>           
-                                      </form>                                      
-                                        
-                                                
+          
+                                          </div>                        
+                                    <!-- Tutup Form -->
+                                          </div>           
+                                        </form>                                                                    
                                       </div>
                                   </div>
                               </div>
@@ -170,64 +167,67 @@
 
 </body>
 
-        <!-- Modal -->
-        <div id="myModal" class="modal fade" role="dialog">
-        <div class="modal-dialog">
+            <!-- Modal Transaksi Pengajuan -->
+            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+              <div class="modal-dialog modal-lg" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Transaksi Pengajuan</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="modal-body">
+                      <div style="overflow: auto;">
+                        <table class="table" id="tb_PP">
+                         <thead>
+                            <th>No.</th>
+                            <th>No PP</th>
+                            <th>tanggal</th>
+                            <th>No nasabah</th>
+                            <th>Nama nasabah</th>
+                            <th>tanggal peminjaman</th>
+                            <th>Tabungan</th>
 
-          <!-- Modal content-->
-          <div class="modal-content">
-            <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal">&times;</button>
-              <h4 class="modal-title">Data PP</h4>
-            </div>
-            <div class="modal-body">
-              <div style="overflow: auto;">
-                      
-                      <table class="table" id="tb_PP">
-                        <thead>
-                          <th>No.</th>
-                          <th>No PP</th>
-                          <th>tanggal</th>
-                          <th>No nasabah</th>
-                          <th>Nama nasabah</th>
-                          <th>tanggal peminjaman</th>
+                         </thead>
+                         <tbody>
+                          <?php 
+                            $n=0;
+                            foreach ($datapp->result() as $row) {
+                              $n++;
+                              ?>
+                                <tr>
+                                <td><?php echo $n; ?></td>
+                                <td><span><?php echo $row->nomor_transaksi; ?></span></td>
+                                <td><span><?php echo $row->tanggal_transaksi; ?></span></td>
+                                <td><span><?php echo $row->nomor_nasabah; ?></span></td>
+                                <td><span><?php echo $row->nama_nasabah; ?></span></td>
+                                <td><span><?php echo $row->tanggal_peminjaman; ?></span></td>
+                                <td><span><?php echo $row->total_tabungan; ?></span></td>
 
-                        </thead>
-                        <tbody>
-                        <?php 
-                    // $n=0;
-                    $n=0;
-                    foreach ($datapp->result() as $row) {
-                      $n++;
-                      ?>
-                        <tr>
-                        
-                        <td><?php echo $n; ?></td>
-                        <td><span><?php echo $row->nomor_transaksi; ?></span></td>
-                        <td><span><?php echo $row->tanggal_transaksi; ?></span></td>
-                        <td><span><?php echo $row->nomor_nasabah; ?></span></td>
-                        <td><span><?php echo $row->nama_nasabah; ?></span></td>
-                        <td><span><?php echo $row->tanggal_peminjaman; ?></span></td>
-                   
+                                <td>
+                                  <button  class="btn btn-danger btn_pilih"><i class=""></i>SELECT</buttton>
+                                </td>
 
-
-                        <td>
-                          <button  class="btn btn-danger btn_pilih"><i class=""></i>SELECT</buttton>
-                        </td>
-                        </tr>
-                        
-                        
-                        <?php } ?>
-
-
-                        </tbody>
-                      </table>
+                                </tr>
+                                
+                                
+                                <?php }
+                          ?>
+                         </tbody>
+                        </table>
+                      </div>
                     </div>
+
+                  </div>
+                  <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary">Save changes</button>
+                  </div>
+                </div>
+              </div>
             </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-          </div>
 
         </div>
       </div>
@@ -277,37 +277,29 @@
       $('#myModal').modal('show');
     })
 
-    // $(".btn_pilih").click(function(){
-    //   //alert('aa');
-    //   index=$(this).parent().parent().index();
-    //   NoPM=$("#tb_PP tbody tr:eq("+index+") td:nth-child(2) span").text();
-    //   tgl=$("#tb_PP tbody tr:eq("+index+") td:nth-child(3) span").text();
-    //   nonasabah=$("#tb_PP tbody tr:eq("+index+") td:nth-child(4) span").text();
-    //   namanasabah=$("#tb_PP tbody tr:eq("+index+") td:nth-child(5) span").text();
-    //   jabat=$("#tb_PP tbody tr:eq("+index+") td:nth-child(7) span").text();
+    $(".btn_pilih").click(function(){
+      // alert('aa');
+      index=$(this).parent().parent().index();
+      NoPM=$("#tb_PP tbody tr:eq("+index+") td:nth-child(2) span").text();
+      NoNasabah=$("#tb_PP tbody tr:eq("+index+") td:nth-child(4) span").text();
+      nama=$("#tb_PP tbody tr:eq("+index+") td:nth-child(5) span").text();
+      tabungan=$("#tb_PP tbody tr:eq("+index+") td:nth-child(7) span").text();
+
+      $("#no_pengajuan").val(NoPM);
+      $("#nasa").val(NoNasabah);
+      $("#nama").text(nama);
+      $("#tot_tabungan").val(tabungan);
+      $("#tot_tabungan").text(tabungan);
       
-    //   // if ( $("#tb_PP tbody tr:eq("+index+") td:nth-child(9) span").text() == 0 ){
-    //   //   gaji=$("#tb_PP tbody tr:eq("+index+") td:nth-child(8) span").text();
-    //   // }else{
-    //   //   gaji=$("#tb_PP tbody tr:eq("+index+") td:nth-child(9) span").text();
-    //   // }
-    //   $("#pp").val(NoPP);
-    //   $("#karyawan").val(idkar);
-    //   $("#dep").val(kddept);
-    //   $("#jbt").val(jabat);
-    //   $("#tanggal").val(tgl);
-    //   $("#gajihidden").val(gaji);
-
-
-    //   $("#myModal").modal("hide");
-    // })
+      $("#myModal").modal("hide");
+    })
 $("#nominal").keyup(function(){
     var nominal = $(this).val();
     var jasa    = 0;
-    if (nominal==5000) {
+    if (nominal==5000000) {
         jasa=0.1;
     }
-    else if (nominal >5000 && nominal <10000){
+    else if (nominal >5000000 && nominal <1000000){
         jasa=0.2;  
     }
     else{
@@ -327,43 +319,43 @@ $("#cicil").keyup(function(){
 })
 
 // $("#no_pengajuan").autocomplete({
-//     source: <?php echo base_url('CPeminjaman/autocomp/?'); ?>
+//     source: <?//php echo base_url('CPeminjaman/autocomp/?'); ?>
 // });
 
-$( "#no_pengajuan" ).autocomplete({
-        source: function( request, response ) {
-          // Fetch data
-          $.ajax({
-            url: "<?=base_url()?>CPeminjaman/autocomp",
-            type: 'post',
-            dataType: "json",
-            data: {
-              term: request.term
-            },
-            success: function( data ) {
-                // console.log(data);
-                response( data );
-            }
-          });
-        },
-        select: function (event, ui) {
-          // Set selection
-        //   $('#no_pengajuan').val(ui.item.label); // display the selected text
-          $('#no_pengajuan').val(ui.item.value); // save selected id to input
-          $.ajax({
-              url: "<?php echo base_url(''); ?>" + 'CPeminjaman/get_P/' + ui.item.value,
-              type: "post",
-              dataType: "json",
-              success:function(data){
-                  console.log(data);
-                  $("#nasa").val(data.nomor_nasabah);
-                  $("#tot_tabungan").val(data.total_tabungan);
-              }
-          })
-          return false;
+// $( "#no_pengajuan" ).autocomplete({
+//         source: function( request, response ) {
+//           // Fetch data
+//           $.ajax({
+//             url: "<?//=base_url()?>CPeminjaman/autocomp",
+//             type: 'post',
+//             dataType: "json",
+//             data: {
+//               term: request.term
+//             },
+//             success: function( data ) {
+//                 // console.log(data);
+//                 response( data );
+//             }
+//           });
+//         },
+//         select: function (event, ui) {
+//           // Set selection
+//         //   $('#no_pengajuan').val(ui.item.label); // display the selected text
+//           $('#no_pengajuan').val(ui.item.value); // save selected id to input
+//           $.ajax({
+//               url: "<?//php echo base_url(''); ?>" + 'CPeminjaman/get_P/' + ui.item.value,
+//               type: "post",
+//               dataType: "json",
+//               success:function(data){
+//                   console.log(data);
+//                   $("#nasa").val(data.nomor_nasabah);
+//                   $("#tot_tabungan").val(data.total_tabungan);
+//               }
+//           })
+//           return false;
 
-        }
-      });
+//         }
+//       });
 
                       
 // 		function hanyaAngka(evt) {
@@ -382,5 +374,7 @@ $( "#no_pengajuan" ).autocomplete({
 // 			            return false;        
 // 			         return true;
 // 				}
-
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip();   
+});
 </script>

@@ -110,8 +110,9 @@ class CLaporan extends CI_Controller
 		$title="LAPORAN Peminjaman Koperasi PER PERIODE";
 		$pdf->SetTitle($title);
 		$pdf->SetAuthor('Fajar karunia');
+		$pdf->Image('koperasi.jpg',5,5,-500);
 		$pdf->Cell(200,4,'Laporan Peminjaman Koperasi Per Bulan ',0,1,'C');
-		$pdf->Cell(205,4,'Di KOPERASI SAHABAT MANDIRI ',0,1,'C');
+		$pdf->Cell(205,10,'Di KOPERASI SAHABAT MANDIRI ',0,1,'C');
 
 		$pdf->Ln();
 
@@ -173,8 +174,9 @@ class CLaporan extends CI_Controller
 		$title="LAPORAN Peminjaman Koperasi PER USER";
 		$pdf->SetTitle($title);
 		$pdf->SetAuthor('Fajar karunia');
+		$pdf->Image('koperasi.jpg',5,5,-500);
 		$pdf->Cell(200,4,'Laporan Peminjaman Koperasi Per user ',0,1,'C');
-		$pdf->Cell(205,4,'Di KOPERASI SAHABAT MANDIRI ',0,1,'C');
+		$pdf->Cell(205,10,'Di KOPERASI SAHABAT MANDIRI ',0,1,'C');
 
 		$pdf->Ln();
 
