@@ -14,9 +14,9 @@
   
       
       <li class="nav-item">
-        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="<?php echo base_url('CLogin/logout') ?>" role="button">
+        <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
         <i class="fas fa-sign-out-alt"></i>
-                <span class="right badge badge-danger">Keluar</span>
+                <span class="right badge badge-primary">Change color</span>
         </a>
       </li>
     </ul>

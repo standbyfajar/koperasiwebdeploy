@@ -102,7 +102,7 @@ class CAdmin extends CI_Controller
 
 		$data = array('login_id'=>$login_id,'email'=>$mail,'nomor_nasabah'=>$nasa,
 		'namadepan'=>$dpn,'namabelakang'=>$blkg,'PASSWORD'=>md5($pas),
-		'hak_akses'=>$akses,'active'=>'true');
+		'active'=>'true');
         // var_dump($data) ;
         // return;
 		// simpan data ke tabel jurusan
@@ -142,6 +142,8 @@ class CAdmin extends CI_Controller
 
 		echo json_encode($hasil);
 	}
+    
+
     
 }
 

@@ -167,6 +167,10 @@ class ModelData extends CI_Model
 	   	$myquery="update ppurut set Ppurut=Ppurut+1";
 	   	$kasus=$this->db->query($myquery);
 	}
+	function updatetabungan($nominal,$nomor_nasabah){
+		$myquery="update nasabah set total_tabungan=total_tabungan+$nominal where nomor_nasabah='$nomor_nasabah'";
+		$kasus=$this->db->query($myquery);
+ }
 	function cancelPP(){
 		$myquery="update ppurut set Ppurut=Ppurut-1";
 		$kasus=$this->db->query($myquery);

@@ -114,12 +114,12 @@
                                                     <label class="col-sm-4 control-label">Hak Akses</label>
                                                     <div class="col-sm-8">
                                                     <input type="text" name="hak" id="hak" value="<?php echo $data->hak_akses; ?>" readonly disabled>
-                                                    <select  class="form-control " id="akses" name="akses">
+                                                    <!-- <select  class="form-control " id="akses" name="akses">
                                                     <option value="">Pilih Hak Akses</option> 
                                                     <option value="1">1</option>
                                                     <option value="2">2</option>
                                                     <option value="3">3</option>
-                                                    </select>
+                                                    </select> -->
 
                                                     </div>
                                                 </div>
@@ -207,11 +207,11 @@
                 $('#bln').val(bln);
             });
 
-        $( "#nomor" ).autocomplete({
+        $( "#nasabah" ).autocomplete({
                 source: function( request, response ) {
                 // Fetch data
                 $.ajax({
-                    url: "<?=base_url()?>CTabungan/autocomp",
+                    url: "<?=base_url()?>CAdmin/autocomp",
                     type: 'post',
                     dataType: "json",
                     data: {
@@ -228,13 +228,13 @@
                 //   $('#no_pengajuan').val(ui.item.label); // display the selected text
                 $('#nomor').val(ui.item.value); // save selected id to input
                 $.ajax({
-                    url: "<?php echo base_url(''); ?>" + 'CTabungan/get_nasabah/' + ui.item.value,
+                    url: "<?php echo base_url(''); ?>" + 'CAdmin/get_nasabah/' + ui.item.value,
                     type: "post",
                     dataType: "json",
                     success:function(data){
                         console.log(data);
-                        $("#nomor").val(data.nomor_nasabah);
-                        $("#nomorL").text(data.nama_nasabah);
+                        $("#nasabah").val(data.nomor_nasabah);
+                        // $("#nomorL").text(data.nama_nasabah);
                     }
                 })
                 return false;

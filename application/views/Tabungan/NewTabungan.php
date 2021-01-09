@@ -193,10 +193,10 @@
 </html>
 <script type="text/javascript">
             $('#tgl').on('change', function() {
-                tgl=$('#tgl').val();
-                var bln = new Date(tgl).getMonth();
-
-                $('#bln').val(bln);
+                var tgl=$('#tgl').val();
+                var bln = new Date(tgl).getMonth()+1;                
+                var bulan = $('#bln').val(bln);
+                // console.log(bulan);
             });
 
         $( "#nomor" ).autocomplete({

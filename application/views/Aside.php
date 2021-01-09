@@ -95,6 +95,7 @@
                 </li>
               <?php endif; ?>
 
+              <?php if(!empty($this->session->userdata('userlogin')['hak_akses'])): ?>
               <li class="nav-item">
                 <a href="<?php echo base_url('CNasabah') ?>" class="nav-link">
                   <i class="far fas fa-user nav-icon"></i>
@@ -102,6 +103,8 @@
                   <p> Nasabah</p>
                 </a>
               </li>
+              <?php endif; ?>
+
               <li class="nav-item">
                 <a href="<?php echo base_url('CTabungan') ?>" class="nav-link">
                   <i class="far fa-credit-card nav-icon"></i>

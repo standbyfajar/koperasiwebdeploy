@@ -95,7 +95,7 @@ class CTabungan extends CI_Controller
 			$kod=$this->input->post('id');
 			$nomor=$this->input->post('nomor');
 			$tgl=$this->input->post('tgl');
-			$bulan= $this->input->post('bulan');
+			$bulan= $this->input->post('bln');
 			$nominal=$this->input->post('nominal');
 			$ket=$this->input->post('ket');
 			$ft=$this->upload();
@@ -120,6 +120,8 @@ class CTabungan extends CI_Controller
 				
 				// simpan data ke tabel 
 				$this->ModelGue->insert('transaksi_tabungan',$data);
+				$this->ModelData->updatetabungan($nominal,$nomor);
+
 				$a=base_url('CTabungan');
 				redirect($a);
 				// atau memanggil ke index
