@@ -126,7 +126,7 @@
                                                     </div>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label class="col-sm-3 control-label">Bunga %</label>
+                                                    <label class="col-sm-3 control-label">Bunga pinjam</label>
                                                     <div class="col-sm-2">
                                                     <input type="text" name="bunga" id="bunga" readonly/>                                                    
                                                     </div>
@@ -297,13 +297,13 @@ $("#nominal").keyup(function(){
     var nominal = $(this).val();
     var jasa    = 0;
     if (nominal<=5000000) {
-        jasa=1 *nominal;
+        jasa=1 *nominal/100;
     }
     else if (nominal >5000000 && nominal <1000000){
-        jasa=1.5 * nominal;  
+        jasa=1.5 * nominal/100;  
     }
     else{
-         jasa= 2 * nominal;
+         jasa= 2 * nominal/100;
     }
     $("#bunga").val(jasa);
 })
@@ -313,8 +313,11 @@ $("#cicil").keyup(function(){
     var nominal = $("#nominal").val();
     var bunga = $("#bunga").val();
     var cicil_bln = 0;
-    cicil_bln = (nominal/cicil) + bunga;
-    $("#cicil_bulan").val(Math.round(parseInt((cicil_bln))));
+    var setor = 0 ;
+    cicil_bln = (nominal*cicil)/100;
+    setor = Math.round(parseInt((cicil_bln))) +Math.round(parseInt((bunga)));
+    // console.log(setor);
+    $("#cicil_bulan").val(Math.round(parseInt((setor))));
 
 })
 
