@@ -303,7 +303,7 @@ $("#nominal").keyup(function(){
         jasa=1.5 * nominal/100;  
     }
     else{
-         jasa= 2 * nominal/100;
+         jasa= 1.7 * nominal/100;
     }
     $("#bunga").val(jasa);
 })
@@ -314,7 +314,7 @@ $("#cicil").keyup(function(){
     var bunga = $("#bunga").val();
     var cicil_bln = 0;
     var setor = 0 ;
-    cicil_bln = (nominal*cicil)/100;
+    cicil_bln = (nominal/cicil);
     setor = Math.round(parseInt((cicil_bln))) +Math.round(parseInt((bunga)));
     // console.log(setor);
     $("#cicil_bulan").val(Math.round(parseInt((setor))));
