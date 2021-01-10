@@ -297,13 +297,13 @@ $("#nominal").keyup(function(){
     var nominal = $(this).val();
     var jasa    = 0;
     if (nominal<=5000000) {
-        jasa=1 *nominal/100;
+        jasa=1.5 *nominal/100;
     }
     else if (nominal >5000000 && nominal <1000000){
-        jasa=1.5 * nominal/100;  
+        jasa=1 * nominal/100;  
     }
     else{
-         jasa= 1.7 * nominal/100;
+         jasa= 0.5 * nominal/100;
     }
     $("#bunga").val(jasa);
 })
