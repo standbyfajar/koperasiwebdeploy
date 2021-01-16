@@ -1,3 +1,8 @@
+<?php
+if (isset($this->session->userlogin)==FALSE) {
+redirect(); //= memanggil routes nya boleh di isi redirect('signin/login')
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>  

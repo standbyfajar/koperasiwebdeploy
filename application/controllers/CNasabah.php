@@ -197,7 +197,8 @@ class CNasabah extends CI_Controller
 				'telepon'=>$tel,
 				'Gaji'=>$gaji,
 				'Foto'=>$ft,
-				'Foto_Identitas'=>$ft2);
+				'Foto_Identitas'=>$ft2,
+				'total_pinjam'=> 0);
 				
 				// simpan data ke tabel 
 				$this->ModelGue->insert('nasabah',$data);

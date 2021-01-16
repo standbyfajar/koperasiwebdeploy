@@ -1,3 +1,8 @@
+<?php
+if (isset($this->session->userlogin)==FALSE) {
+redirect(); //= memanggil routes nya boleh di isi redirect('signin/login')
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -226,7 +231,7 @@
                 select: function (event, ui) {
                 // Set selection
                 //   $('#no_pengajuan').val(ui.item.label); // display the selected text
-                $('#nomor').val(ui.item.value); // save selected id to input
+                $('#nasabah').val(ui.item.value); // save selected id to input
                 $.ajax({
                     url: "<?php echo base_url(''); ?>" + 'CAdmin/get_nasabah/' + ui.item.value,
                     type: "post",

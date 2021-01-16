@@ -1,4 +1,8 @@
-
+<?php
+if (isset($this->session->userlogin)==FALSE) {
+redirect(); //= memanggil routes nya boleh di isi redirect('signin/login')
+}
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -179,52 +183,24 @@
 									<div class="row">
 										<div class="col-sm-6">
 											<div class="form-group">
-											<label class="col-sm-2 control-label">Nomor Transaksi Tabungan</label>
+											<label class="col-sm-2 control-label">Nama Nasabah</label>
 											<div class="col-sm-2">
-											<input type="text" id="id" value="" readonly>
+											<input type="text" id="nama" value="" readonly>
 											
 										</div></div>
 										<div class="form-group">
-											<label class="col-sm-2 control-label">nomor Nasabah</label>
+											<label class="col-sm-2 control-label">Email</label>
 											<div class="col-sm-3">
-											<input type="text" id="nama" readonly>
+											<input type="text" id="email" readonly>
 										</div></div>
 										<div class="form-group">
-											<label class="col-sm-2 control-label">Tanggal Transaksi</label>
+											<label class="col-sm-2 control-label">Hak Akses</label>
 											<div class="col-sm-2">
-											<input type="text" id="tgl" readonly>
+											<input type="text" id="hak" readonly>
 										</div></div>
-
-										<div class="form-group">
-											<label class="col-sm-2 control-label">Bulan</label>
-											<div class="col-sm-2">
-											<input type="text" id="bln" readonly>
-											
-										</div></div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label">nominal</label>
-											<div class="col-sm-2">
-											<input type="text" id="nominal" readonly>
-										</div></div>
-										<div class="form-group">
-											<label class="col-sm-2 control-label">keterangan</label>
-											<div class="col-sm-2">
-											<input type="text" id="ket" readonly>
-										</div></div>
-										</div>
-										<div class="col-sm">
-										<div class="form-group">
-										<img src="" id="foto" class="img-responsive" width="200px">
-										</div></div>
-
 										</div>
 									</form>
 								</div>
-										
-							
-
-
-
 										<!-- footer modal -->
 										<div class="modal-footer">
 											<button type="button" class="btn btn-default" data-dismiss="modal">Tutup Modal</button>
@@ -284,20 +260,17 @@
 	$(".btn_detail").click(function(){
 			nomor=$(this).attr("data-id");
 			// console.log(nomor);
-			$.ajax({url: "<?php echo base_url('CTabungan/get_tabungan/') ?>"+nomor, 
+			$.ajax({url: "<?php echo base_url('CAdmin/get_info/') ?>"+nomor, 
 			method :"POST",
 			dataType:"json",
 			success: function(result){
-				$("#id").val(result.nomor_tabungan);
-				$('#nama').val(result.nomor_nasabah);
-				$('#tgl').val(result.tanggal_transaksi);
-				$('#bln').val(result.bulan);
-				$('#nominal').val(result.nominal);
-				$('#ket').val(result.keterangan);
-				$('#foto').attr('src','<?=base_url()?>image/'+result.upload_transaksi);
+				$("#nama").val(result.namadepan);
+				$('#email').val(result.email);
+				$('#hak').val(result.hak_akses);
+				
 			}});
 
-							$('#infoModal').modal("show");
+			$('#infoModal').modal("show");
 
 	});
 

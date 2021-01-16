@@ -118,10 +118,10 @@ class CAdmin extends CI_Controller
 		$this->ModelGue->delete('login',$syarat);
 		redirect(base_url('CAdmin'));
 	}	
-	function get_tabungan($id){
+	function get_info($id){
 		
-		$data = array('nomor_tabungan'=>$id);
-		$hasil = $this->ModelGue->GetWhere('transaksi_tabungan',$data); 
+		$data = array('login_id'=>$id);
+		$hasil = $this->ModelGue->GetWhere('login',$data); 
 
 		echo json_encode($hasil);
 	}

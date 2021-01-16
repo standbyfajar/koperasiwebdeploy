@@ -172,7 +172,19 @@
                 <span class="right badge badge-danger">Keluar</span>
               </p>
             </a>
+
+            
           </li>
+
+        <li class="nav-item">
+          <a href="https://www.dropbox.com/sh/nh1p4tqbpv6kcxu/AADEsDUldWjjle0YAgpcnLwZa?dl=0" class="nav-link" target="_blank">
+              <i class="fas fa-sign-out-alt"></i>
+              <p>
+                Download APK
+                <span class="right badge badge-warning">APK</span>
+              </p>
+            </a>
+        </li>
       </nav>
       <!-- /.sidebar-menu -->
     </div>
