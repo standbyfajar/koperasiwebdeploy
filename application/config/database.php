@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'localhost',
+	'hostname' => 'auth-db353.hostinger.com',
 	'username' => 'u844381936_koperasiweb',
 	'password' => 'Cakung11',
 	'database' => 'u844381936_koperasiku',
