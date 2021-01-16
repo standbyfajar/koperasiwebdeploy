@@ -198,6 +198,7 @@ class CNasabah extends CI_Controller
 				'Gaji'=>$gaji,
 				'Foto'=>$ft,
 				'Foto_Identitas'=>$ft2,
+				'total_tabungan'=>0,
 				'total_pinjam'=> 0);
 				
 				// simpan data ke tabel 
