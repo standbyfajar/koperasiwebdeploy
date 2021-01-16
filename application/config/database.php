@@ -75,10 +75,10 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'db4free.net',
-	'username' => 'koperasiweb',
+	'hostname' => 'localhost',
+	'username' => 'u844381936_koperasiweb',
 	'password' => 'Cakung11',
-	'database' => 'koperasiku',
+	'database' => 'u844381936_koperasiku',
 	// 'hostname' => 'localhost',
 	// 'username' => 'root',
 	// 'password' => '',
