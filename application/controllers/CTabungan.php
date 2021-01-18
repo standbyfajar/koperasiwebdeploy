@@ -19,7 +19,7 @@ class CTabungan extends CI_Controller
 			// $notransbaru= "TR".date('Y-m-d').sprintf("%03s",$no->transaksi+1);
 			$n=$no->PpurutTabungan+1;
 			// echo $n;
-			$notransbaru="TB".date('y-m-d').substr('000000000'.$n,-4,4);
+			$notransbaru="TB".date('y-m-d').substr('000'.$n,-3,3);
 
 			$datasesi=array('noTB'=>$notransbaru,'tanggal'=>date('y-m-d'),'nik'=>'');
 			$this->session->set_userdata($datasesi);
@@ -60,9 +60,9 @@ class CTabungan extends CI_Controller
 		echo json_encode($hasil);
 	}
 	function tambahT(){
-		$idp=$this->session->noPP;
+		$idp=$this->session->noTB;
 		$ses=array('hd'=>0,
-					'noPP'=>'',
+					'noTB'=>'',
 					'tanggal'=>'',
 					'nik'=>'');
 		$this->session->unset_userdata($ses);
