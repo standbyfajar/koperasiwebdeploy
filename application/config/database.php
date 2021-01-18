@@ -75,7 +75,7 @@ $query_builder = TRUE;
 
 $db['default'] = array(
 	'dsn'	=> '',
-	'hostname' => 'sgx09.dewaweb.com:2083',
+	'hostname' => 'sgx09.dewaweb.com',
 	'username' => 'kopera26_koperasiweb',
 	'password' => 'Cakung11',
 	'database' => 'kopera26_koperasiku',
