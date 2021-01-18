@@ -21,13 +21,13 @@ class CTabungan extends CI_Controller
 			// echo $n;
 			$notransbaru="TB".date('y-m-d').substr('000000000'.$n,-4,4);
 
-			$datasesi=array('noPP'=>$notransbaru,'tanggal'=>date('y-m-d'),'nik'=>'');
+			$datasesi=array('noTB'=>$notransbaru,'tanggal'=>date('y-m-d'),'nik'=>'');
 			$this->session->set_userdata($datasesi);
 
 			$this->session->set_userdata('hd',0);
 
 		}
-		$nota=$this->session->noPP;
+		$nota=$this->session->noTB;
 		$hasil=$this->ModelGue->semuadata('transaksi_tabungan');
 		$data=array('datakr'=>$hasil);
 		$this->load->view('Tabungan/ListTabungan',$data);
