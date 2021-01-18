@@ -72,7 +72,7 @@ redirect(); //= memanggil routes nya boleh di isi redirect('signin/login')
                                             <div class="form-group">
                                                 <label class="col-sm-4 control-label">No Transaksi Tabungan</label>
                                                 <div class="col-sm-2">
-                                                <input type="text" name="id" value="<?php echo $this->session->noPP; ?>" readonly>
+                                                <input type="text" name="id" value="<?php echo $this->session->noTB; ?>" readonly>
                                                 </div>
                                             </div>
                                             
