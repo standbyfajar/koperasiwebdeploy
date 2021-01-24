@@ -100,9 +100,7 @@ class CAdmin extends CI_Controller
         $pas=$this->input->post('Pass');
         $akses=$this->input->post('akses');
 
-		$data = array('login_id'=>$login_id,'email'=>$mail,'nomor_nasabah'=>$nasa,
-		'namadepan'=>$dpn,'namabelakang'=>$blkg,'PASSWORD'=>md5($pas),
-		'active'=>'true');
+		$data = array('nomor_nasabah'=>$nasa);
         // var_dump($data) ;
         // return;
 		// simpan data ke tabel jurusan

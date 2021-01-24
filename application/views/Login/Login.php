@@ -230,7 +230,7 @@
                 </div>
                 
                 <button type="submit" class="button button-block"/>Get Started</button>
-				<a href="https://www.dropbox.com/sh/nh1p4tqbpv6kcxu/AADEsDUldWjjle0YAgpcnLwZa?dl=0" target="_blank">
+				<a href="https://www.dropbox.com/s/uzxgxd55r7okepb/Kosaman%20V5.2.apk?dl=0" target="_blank">
 				<img src="<?php echo base_url('Get_it.png')?>" alt="APK" style="width:500px;height:200px; padding-top:100px;" >
                 </a>
                 </form>
