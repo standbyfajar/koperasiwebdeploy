@@ -71,7 +71,7 @@ redirect(); //= memanggil routes nya boleh di isi redirect('signin/login')
 								<th>Tanggal Peminjaman</th>
 								<th>Keterangan</th>
 								<th>Status</th>
-								<!-- <th>Detail </th>  -->
+								<th> </th> 
 								&nbsp;<a  class="btn btn-primary btn-xs btn_new" href="<?php echo base_url('CPengajuan/tambahP'); ?>"  role="button" title="New">
 									<span class="glyphicon glyphicon-plus"></span> New</a>
 									<button  type="button" class="btn btn-info btn-xs btn_details" data-toggle="modal" data-target="#myModal"><span class="glyphicon glyphicon-th-large"></span>Details</button></th>
@@ -120,8 +120,9 @@ redirect(); //= memanggil routes nya boleh di isi redirect('signin/login')
 								?>
 								</td>
 									
-								<!-- <td><button data-id="<?php echo $row->nomor_transaksi; ?>" type="button" class="btn btn-info btn-xs btn_detail" ><span class="glyphicon glyphicon-th-large"></span>info</button></td>
-								<td> -->
+								<td>
+								<!-- <button data-id="<?//php echo $row->nomor_transaksi; ?>" type="button" class="btn btn-info btn-xs btn_detail" ><span class="glyphicon glyphicon-th-large"></span>info</button></td> -->
+								<td>
 								<a style="width: 110px;" href="<?php echo base_url('Cpermintaan/delete_detil/').$row->nomor_transaksi ?>" class="btn btn-xs btn-danger" onclick="return confirm('Yakin di Hapus ?')"><i class="fa fa-trash" aria-hidden="true"></i> hapus data</a>
 								<a style="width: 110px;" href="<?php echo base_url('CPengajuan/Cetak_form/').$row->nomor_transaksi ?>" target="_blank"  class="btn btn-xs btn-success" ><i class="fa fa-print" aria-hidden="true"></i> Cetak</a></td>
 							</tr><?php
