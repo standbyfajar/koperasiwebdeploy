@@ -188,7 +188,7 @@ class CPeminjaman extends CI_Controller
 				$pdf->Cell(95,8,'bunga ',0,0,'C');
 				$pdf->Cell(5,8,':',0,0,'C');
 				$pdf->Cell(45,8,$datadetil->bunga,0,0,'C');
-				$pdf->Cell(-28,8,"%",0,1,'C');
+				$pdf->Cell(-28,8,"",0,1,'C');
 				
 
 				$pdf->Cell(95,8,'jasa tiap bulan ',0,0,'C');

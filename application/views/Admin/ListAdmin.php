@@ -59,7 +59,7 @@ redirect(); //= memanggil routes nya boleh di isi redirect('signin/login')
 				<div class="col-sm-12">
 							<!-- untuk isi -->
 							<div class="card card-primary">
-								<div class="card-header">Daftar Tabungan</div>
+								<div class="card-header">Daftar User Login</div>
 							<div class="panel-body">
 							<table class="table" id="tbl_one">
 							<thead>
@@ -171,7 +171,7 @@ redirect(); //= memanggil routes nya boleh di isi redirect('signin/login')
 										<!-- heading modal -->
 										<div class="modal-header">
 											<button type="button" class="close" data-dismiss="modal">&times;</button>
-											<h4 class="modal-title">Data Admin</h4>
+											<h4 class="modal-title">Data User Login</h4>
 										</div>
 										<!-- body modal -->
 									<div class="panel panel-info">
