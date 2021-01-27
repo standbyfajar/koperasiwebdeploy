@@ -156,7 +156,7 @@ class CPeminjaman extends CI_Controller
 			$pdf->SetAuthor('Fajar karunia');
 			// cell(width,height,text,border,endline, align)
 				// $this->base_url('koperasi.jpg', 1, 0.7, 3.8); // logo
-				$pdf->Image('koperasi.jpg',5,5,-500);
+				$pdf->Image('koperasi.jpg',5,5,-400);
 				$pdf->Cell(200,4,'Form Transaksi Peminjaman  ',0,1,'C');
 				$pdf->Cell(200,10,' Koperasi Sahabat Mandiri ',0,1,'C');
 				// $pdf->Cell(205,4,'Jln Pintu Air Utara ',0,1,'C');
